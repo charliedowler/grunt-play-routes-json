@@ -37,46 +37,43 @@ grunt.initConfig({
 
 ### Options
 
-#### options.separator
-Type: `String`
-Default value: `',  '`
+#### options.toJSON
+Type: `Boolean`
 
-A string value that is used to do something with whatever.
+Convert a routes file to JSON.
 
-#### options.punctuation
-Type: `String`
-Default value: `'.'`
+#### options.fromJSON
+Type: `Boolean`
 
-A string value that is used to do something else with whatever else.
+Convert a json file to routes.
 
 ### Usage Examples
 
-#### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
-
-```js
-grunt.initConfig({
-  play_routes_json: {
-    options: {},
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-})
-```
-
-#### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
+#### toJSON
 
 ```js
 grunt.initConfig({
   play_routes_json: {
     options: {
-      separator: ': ',
-      punctuation: ' !!!',
+        toJSON: true
     },
     files: {
-      'dest/default_options': ['src/testing', 'src/123'],
+      'dest/routes.json': ['routes'],
+    },
+  },
+})
+```
+
+#### fromJSON
+
+```js
+grunt.initConfig({
+  play_routes_json: {
+    options: {
+      fromJSON: true
+    },
+    files: {
+      'dest/routes': ['routes.json'],
     },
   },
 })
